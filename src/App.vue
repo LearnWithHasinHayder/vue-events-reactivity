@@ -1,32 +1,5 @@
 <script setup>
-import { ref } from "vue"
-const message = ref("Hello Vue 3")
 
-const space = ref(0)
-
-function spacePressed(){
-  space.value++
-  message.value = "Space pressed " + space.value + " times"
-}
-
-function pressedWhat(event){
-  message.value = "You pressed " + event.key 
-}
-
-function buttonPressed(){
-  message.value = "You clicked the button"
-}
-
-function ctrlRightClicked(){
-  message.value = "Ctrl+Right Click"
-}
-
-function divClicked(){
-  alert("Div Clicked")
-}
-function buttonClicked(){
-  alert("Button Clicked")
-}
 </script>
 
 <template>
