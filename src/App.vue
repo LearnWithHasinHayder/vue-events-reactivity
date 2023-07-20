@@ -1,12 +1,12 @@
 <script setup>
 import { ref, reactive } from 'vue'
-
-const accordionIndex = ref(0);
+//reactivity
+const activeIndex = ref(0)
 const accordions = reactive([
   {
     heading: "What is term?",
     content: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi dolor dolorum odio, saepe quibusdam iusto possimus nesciunt dolores assumenda quae totam, doloremque odit. Itaque cum animi, labore debitis deserunt iusto!",
-    isOpen: false
+    isOpen: true
   },
   {
     heading: "When to use Accordion Components?",
@@ -41,16 +41,16 @@ const accordions = reactive([
           <div class="h-1 w-full mx-auto border-b my-5"></div>
 
           <!-- What is term -->
-          <div class="transition hover:bg-indigo-50" v-for="accordion in accordions">
+          <div class="transition hover:bg-indigo-50" v-for="accordion in accordions" >
             <!-- header -->
-            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" @click="accordion.isOpen=!accordion.isOpen">
+            <div @click="accordion.isOpen=!accordion.isOpen" class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" >
               <i class="fas fa-plus"></i>
-              <h3>{{ accordion.heading }}</h3>
+              <h3>{{accordion.heading}}</h3>
             </div>
             <!-- Content -->
-            <div class="px-5 pt-0 text-left pb-5" :class="accordion.isOpen ? '' : 'hidden'">
+            <div class="px-5 pt-0 text-left pb-5" v-show="accordion.isOpen" >
               <p class="leading-6 font-light pl-9 ">
-                {{ accordion.content }}
+              {{ accordion.content }}
               </p>
             </div>
           </div>
@@ -69,22 +69,23 @@ const accordions = reactive([
           <div class="h-1 w-full mx-auto border-b my-5"></div>
 
           <!-- What is term -->
-          <div class="transition hover:bg-indigo-50" v-for="(accordion,index) in accordions">
+          <div class="transition hover:bg-indigo-50" v-for="(accordion,index) in accordions" >
             <!-- header -->
-            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" @click="accordionIndex=index">
+            <div @click="activeIndex=index" class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" >
               <i class="fas fa-plus"></i>
-              <h3>{{ accordion.heading }}</h3>
+              <h3>{{accordion.heading}}</h3>
             </div>
             <!-- Content -->
-            <div class="px-5 pt-0 text-left pb-5" :class="accordionIndex==index ? '' : 'hidden'">
+            <div class="px-5 pt-0 text-left pb-5" v-show="index==activeIndex" >
               <p class="leading-6 font-light pl-9 ">
-                {{ accordion.content }}
+              {{ accordion.content }}
               </p>
             </div>
           </div>
         </div>
       </div>
     </div>
+    
   </section>
 </template>
 
