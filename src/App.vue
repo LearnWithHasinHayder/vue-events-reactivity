@@ -1,41 +1,83 @@
 <script setup>
-const location = "Dhaka"
-const weather = "t"
+import { ref } from 'vue'
+const accordionIndex = ref(0)
 </script>
 
 <template>
   <section class="container mx-auto flex items-center flex-col">
     <h1 class="text-center text-2xl py-10">Events & Reactivity in Vue.js</h1>
-    <div class="container mx-auto flex space-x-5 justify-center m-5">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Button
-      </button>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Button
-      </button>
-    </div>
-    <div class="w-1/3 bg-gray-200 p-10 flex items-center flex-col space-y-10">
-      <h1 class="text-3xl">{{ location }}</h1>
 
-      <template v-if="weather == 's'">
-        <h2 class="text-2xl">Weather: Sunny</h2>
-        <img class="w-32" src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/7911203/weather-icon-md.png" alt="">
-      </template>
+    <div class="p-10 bg-gradient-to-br from-pink-50 to-indigo-100 grid place-items-center">
+      <div class="w-6/12 mx-auto rounded border">
+        <div class="bg-white p-10 shadow-sm">
+          <h3 class="text-lg font-medium text-gray-800">Several Windows stacked on each other</h3>
+          <p class="text-sm font-light text-gray-600 my-3">
+            The accordion is a graphical control element comprising a vertically stacked list of items such as labels or thumbnails
+          </p>
 
-      <template v-if="weather == 'pc'">
-        <h2 class="text-2xl">Weather: Partly Cloudy</h2>
-        <img class="w-32" src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/7912718/weather-icon-md.png" alt="">
-      </template>
+          <div class="h-1 w-full mx-auto border-b my-5"></div>
 
-      <template v-if="weather == 'r'">
-        <h2 class="text-2xl">Weather: Rainy</h2>
-        <img class="w-32" src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/7913380/weather-icon-md.png" alt="">
-      </template>
+          <!-- What is term -->
+          <div class="transition hover:bg-indigo-50">
+            <!-- header -->
+            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" @click="accordionIndex = 0">
+              <i class="fas fa-plus"></i>
+              <h3>What is term?</h3>
+            </div>
+            <!-- Content -->
+            <div class="px-5 pt-0 text-left pb-5" :class="accordionIndex == 0 ? '' : 'hidden'">
+              <p class="leading-6 font-light pl-9 ">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi dolor dolorum odio, saepe quibusdam iusto possimus nesciunt dolores assumenda quae totam, doloremque odit. Itaque cum animi, labore debitis deserunt iusto!
+              </p>
+            </div>
+          </div>
 
-      <template v-if="weather == 't'">
-        <h2 class="text-2xl">Weather: Thunderstorm</h2>
-        <img class="w-32" src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/7912589/weather-icon-md.png" alt="">
-      </template>
+          <!-- When to use Accordion Components -->
+          <div class="transition hover:bg-indigo-50">
+            <!-- header -->
+            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" @click="accordionIndex = 1">
+              <i class="fas fa-plus"></i>
+              <h3>When to use Accordion Components?</h3>
+            </div>
+            <!-- Content -->
+            <div class="accordion-content px-5 pt-0 text-left pb-5" :class="accordionIndex == 1 ? '' : 'hidden'">
+              <p class="leading-6 font-light pl-9 ">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut suscipit itaque, sequi incidunt ab sit optio debitis dignissimos doloribus ratione nobis id mollitia maiores eveniet necessitatibus dolorum praesentium! Corrupti, at.
+              </p>
+            </div>
+          </div>
+
+          <!-- Accordion Wrapper -->
+          <div class="transition hover:bg-indigo-50">
+            <!-- header -->
+            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" @click="accordionIndex = 2">
+              <i class="fas fa-plus"></i>
+              <h3>How can it be defined?</h3>
+            </div>
+            <!-- Content -->
+            <div class="accordion-content px-5 pt-0 text-left pb-5" :class="accordionIndex == 2 ? '' : 'hidden'">
+              <p class="leading-6 font-light pl-9">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima facilis labore voluptates provident nam, delectus suscipit nihil optio voluptate quae porro fugiat magni excepturi doloribus.
+              </p>
+            </div>
+          </div>
+
+          <!-- Accordion Wrapper -->
+          <div class="transition hover:bg-indigo-50">
+            <!-- header -->
+            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" @click="accordionIndex = 3">
+              <i class="fas fa-plus"></i>
+              <h3>Chamber reached do he nothing be?</h3>
+            </div>
+            <!-- Content -->
+            <div class="accordion-content px-5 pt-0 text-left pb-5" :class="accordionIndex == 3 ? '' : 'hidden'">
+              <p class="leading-6 font-light pl-9">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam minima maiores magni dolore qui architecto pariatur incidunt repellat quos hic? Eius, eveniet accusantium! Quisquam, quo. Vitae ipsum ad veritatis commodi quasi expedita!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
