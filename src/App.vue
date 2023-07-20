@@ -5,6 +5,8 @@ const location = reactive({
   weather:"Sunny"
 })
 
+
+
 function changeLocation(newLocation) {
   location.name = newLocation
 }
@@ -19,6 +21,9 @@ function changeLocation(newLocation) {
       </button>
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="changeLocation('Rajshahi')">
         Rajshahi
+      </button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="changeLocation('Khulna')">
+        Khulna
       </button>
     </div>
     <h1 class="text-2xl m-10">Current Location is {{ location.name }}</h1>
