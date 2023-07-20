@@ -1,11 +1,9 @@
 <script setup>
-import {reactive} from 'vue'
+import {ref, reactive} from 'vue'
 const location = reactive({
   name: "Dhaka",
   weather:"Sunny"
 })
-
-
 
 function changeLocation(newLocation) {
   location.name = newLocation
