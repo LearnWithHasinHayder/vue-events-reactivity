@@ -1,90 +1,42 @@
 <script setup>
 import { ref, reactive } from 'vue'
 
-const accordionIndex = ref(0);
-const accordions = reactive([
+const activeIndex = ref(0)
+const images=[
   {
-    heading: "What is term?",
-    content: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi dolor dolorum odio, saepe quibusdam iusto possimus nesciunt dolores assumenda quae totam, doloremque odit. Itaque cum animi, labore debitis deserunt iusto!",
-    isOpen: false
+    thumb:"https://images.unsplash.com/photo-1682685797769-481b48222adf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=300&q=60",
+    full:"https://images.unsplash.com/photo-1682685797769-481b48222adf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=1024&q=60"
   },
   {
-    heading: "When to use Accordion Components?",
-    content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut suscipit itaque, sequi incidunt ab sit optio debitis dignissimos doloribus ratione nobis id mollitia maiores eveniet necessitatibus dolorum praesentium! Corrupti, at.",
-    isOpen: false
+    thumb:"https://images.unsplash.com/photo-1682695794816-7b9da18ed470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=300&q=60",
+    full:"https://images.unsplash.com/photo-1682695794816-7b9da18ed470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=1024&q=60"
   },
   {
-    heading: "How can it be defined?",
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima facilis labore voluptates provident nam, delectus suscipit nihil optio voluptate quae porro fugiat magni excepturi doloribus.",
-    isOpen: false
+    thumb:"https://images.unsplash.com/photo-1682685797661-9e0c87f59c60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=300&q=60",
+    full:"https://images.unsplash.com/photo-1682685797661-9e0c87f59c60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=1024&q=60"
   },
   {
-    heading: "Chamber reached do he nothing be?",
-    content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam minima maiores magni dolore qui architecto pariatur incidunt repellat quos hic? Eius, eveniet accusantium! Quisquam, quo. Vitae ipsum ad veritatis commodi quasi expedita!",
-    isOpen: false
+    thumb:"https://plus.unsplash.com/premium_photo-1666963323736-5ee1c16ef19d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=300&q=60",
+    full:"https://plus.unsplash.com/premium_photo-1666963323736-5ee1c16ef19d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=1024&q=60"
   }
-])
+]
+
+function changeImage(index){
+  activeIndex.value = index
+}
 </script>
 
 <template>
   <section class="container mx-auto flex items-center flex-col">
     <h1 class="text-center text-2xl py-10">Events & Reactivity in Vue.js</h1>
-
-    <div class="w-full p-10 bg-gradient-to-br from-pink-50 to-indigo-100 grid place-items-center">
-      <div class="w-3/4 mx-auto rounded border">
-        <div class="bg-white p-10 shadow-sm">
-          <h3 class="text-lg font-medium text-gray-800">Several Windows stacked on each other</h3>
-          <p class="text-sm font-light text-gray-600 my-3">
-            The accordion is a graphical control element comprising a vertically stacked list of items such as labels or thumbnails
-          </p>
-
-          <div class="h-1 w-full mx-auto border-b my-5"></div>
-
-          <!-- What is term -->
-          <div class="transition hover:bg-indigo-50" v-for="accordion in accordions">
-            <!-- header -->
-            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" @click="accordion.isOpen=!accordion.isOpen">
-              <i class="fas fa-plus"></i>
-              <h3>{{ accordion.heading }}</h3>
+        <div class="">
+            <div class="flex space-x-2">
+                <img class="cursor-pointer" v-for="(image, index) in images" :src="image.thumb" @click="changeImage(index)">
             </div>
-            <!-- Content -->
-            <div class="px-5 pt-0 text-left pb-5" :class="accordion.isOpen ? '' : 'hidden'">
-              <p class="leading-6 font-light pl-9 ">
-                {{ accordion.content }}
-              </p>
+            <div class="mt-10">
+                <img class="w-full" :src="images[activeIndex].full" alt="">
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-
-    <div class="w-full p-10 bg-gradient-to-br from-pink-50 to-indigo-100 grid place-items-center">
-      <div class="w-3/4 mx-auto rounded border">
-        <div class="bg-white p-10 shadow-sm">
-          <h3 class="text-lg font-medium text-gray-800">Several Windows stacked on each other</h3>
-          <p class="text-sm font-light text-gray-600 my-3">
-            The accordion is a graphical control element comprising a vertically stacked list of items such as labels or thumbnails
-          </p>
-
-          <div class="h-1 w-full mx-auto border-b my-5"></div>
-
-          <!-- What is term -->
-          <div class="transition hover:bg-indigo-50" v-for="(accordion,index) in accordions">
-            <!-- header -->
-            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" @click="accordionIndex=index">
-              <i class="fas fa-plus"></i>
-              <h3>{{ accordion.heading }}</h3>
-            </div>
-            <!-- Content -->
-            <div class="px-5 pt-0 text-left pb-5" :class="accordionIndex==index ? '' : 'hidden'">
-              <p class="leading-6 font-light pl-9 ">
-                {{ accordion.content }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 </template>
 
