@@ -1,7 +1,28 @@
 <script setup>
 import { ref, reactive } from 'vue'
-const accordionIndex = reactive([
-  false, false, false, false
+
+const accordionIndex = ref(0);
+const accordions = reactive([
+  {
+    heading: "What is term?",
+    content: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi dolor dolorum odio, saepe quibusdam iusto possimus nesciunt dolores assumenda quae totam, doloremque odit. Itaque cum animi, labore debitis deserunt iusto!",
+    isOpen: false
+  },
+  {
+    heading: "When to use Accordion Components?",
+    content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut suscipit itaque, sequi incidunt ab sit optio debitis dignissimos doloribus ratione nobis id mollitia maiores eveniet necessitatibus dolorum praesentium! Corrupti, at.",
+    isOpen: false
+  },
+  {
+    heading: "How can it be defined?",
+    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima facilis labore voluptates provident nam, delectus suscipit nihil optio voluptate quae porro fugiat magni excepturi doloribus.",
+    isOpen: false
+  },
+  {
+    heading: "Chamber reached do he nothing be?",
+    content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam minima maiores magni dolore qui architecto pariatur incidunt repellat quos hic? Eius, eveniet accusantium! Quisquam, quo. Vitae ipsum ad veritatis commodi quasi expedita!",
+    isOpen: false
+  }
 ])
 </script>
 
@@ -20,61 +41,44 @@ const accordionIndex = reactive([
           <div class="h-1 w-full mx-auto border-b my-5"></div>
 
           <!-- What is term -->
-          <div class="transition hover:bg-indigo-50">
+          <div class="transition hover:bg-indigo-50" v-for="accordion in accordions">
             <!-- header -->
-            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" @click="accordionIndex[0]=!accordionIndex[0]">
+            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" @click="accordion.isOpen=!accordion.isOpen">
               <i class="fas fa-plus"></i>
-              <h3>What is term?</h3>
+              <h3>{{ accordion.heading }}</h3>
             </div>
             <!-- Content -->
-            <div class="px-5 pt-0 text-left pb-5" :class="accordionIndex[0]? '' : 'hidden'">
+            <div class="px-5 pt-0 text-left pb-5" :class="accordion.isOpen ? '' : 'hidden'">
               <p class="leading-6 font-light pl-9 ">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi dolor dolorum odio, saepe quibusdam iusto possimus nesciunt dolores assumenda quae totam, doloremque odit. Itaque cum animi, labore debitis deserunt iusto!
+                {{ accordion.content }}
               </p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
 
-          <!-- When to use Accordion Components -->
-          <div class="transition hover:bg-indigo-50">
+    <div class="w-full p-10 bg-gradient-to-br from-pink-50 to-indigo-100 grid place-items-center">
+      <div class="w-3/4 mx-auto rounded border">
+        <div class="bg-white p-10 shadow-sm">
+          <h3 class="text-lg font-medium text-gray-800">Several Windows stacked on each other</h3>
+          <p class="text-sm font-light text-gray-600 my-3">
+            The accordion is a graphical control element comprising a vertically stacked list of items such as labels or thumbnails
+          </p>
+
+          <div class="h-1 w-full mx-auto border-b my-5"></div>
+
+          <!-- What is term -->
+          <div class="transition hover:bg-indigo-50" v-for="(accordion,index) in accordions">
             <!-- header -->
-            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" @click="accordionIndex[1]=!accordionIndex[1]">
+            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" @click="accordionIndex=index">
               <i class="fas fa-plus"></i>
-              <h3>When to use Accordion Components?</h3>
+              <h3>{{ accordion.heading }}</h3>
             </div>
             <!-- Content -->
-            <div class="accordion-content px-5 pt-0 text-left pb-5" :class="accordionIndex[1] ? '' : 'hidden'">
+            <div class="px-5 pt-0 text-left pb-5" :class="accordionIndex==index ? '' : 'hidden'">
               <p class="leading-6 font-light pl-9 ">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut suscipit itaque, sequi incidunt ab sit optio debitis dignissimos doloribus ratione nobis id mollitia maiores eveniet necessitatibus dolorum praesentium! Corrupti, at.
-              </p>
-            </div>
-          </div>
-
-          <!-- Accordion Wrapper -->
-          <div class="transition hover:bg-indigo-50">
-            <!-- header -->
-            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" @click="accordionIndex[2]=!accordionIndex[2]">
-              <i class="fas fa-plus"></i>
-              <h3>How can it be defined?</h3>
-            </div>
-            <!-- Content -->
-            <div class="accordion-content px-5 pt-0 text-left pb-5" :class="accordionIndex[2] ? '' : 'hidden'">
-              <p class="leading-6 font-light pl-9">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima facilis labore voluptates provident nam, delectus suscipit nihil optio voluptate quae porro fugiat magni excepturi doloribus.
-              </p>
-            </div>
-          </div>
-
-          <!-- Accordion Wrapper -->
-          <div class="transition hover:bg-indigo-50">
-            <!-- header -->
-            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" @click="accordionIndex[3]=!accordionIndex[3]">
-              <i class="fas fa-plus"></i>
-              <h3>Chamber reached do he nothing be?</h3>
-            </div>
-            <!-- Content -->
-            <div class="accordion-content px-5 pt-0 text-left pb-5" :class="accordionIndex[3] ? '' : 'hidden'">
-              <p class="leading-6 font-light pl-9">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam minima maiores magni dolore qui architecto pariatur incidunt repellat quos hic? Eius, eveniet accusantium! Quisquam, quo. Vitae ipsum ad veritatis commodi quasi expedita!
+                {{ accordion.content }}
               </p>
             </div>
           </div>
