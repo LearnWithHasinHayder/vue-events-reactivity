@@ -21,7 +21,7 @@
             <div class="p-10 border w-96 flex flex-col space-y-5">
                 <img class="w-20" src="//img.icons8.com/?size=512&id=12244&format=png" alt="">
                 <img class="w-20" src="//img.icons8.com/?size=512&id=12244&format=png" alt="">
-                <img class="w-20" src="https://img.icons8.com/?size=512&id=75&format=png" alt="">
+                <img class="w-20" src="//img.icons8.com/?size=512&id=75&format=png" alt="">
             </div>
         </div>
     </section>
