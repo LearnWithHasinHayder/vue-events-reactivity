@@ -26,7 +26,6 @@ const links=[
 
 function setText(text){
   about.value=text
-  console.log(about.value)
 }
 </script>
 
@@ -37,7 +36,6 @@ function setText(text){
     <div class="container mx-auto flex space-x-5 justify-center m-[1000px]">
       <a
         v-for="link in links"
-        target="_blank"
         :key="link.name"
         href="#"
         @click.prevent="setText(link.about)"
