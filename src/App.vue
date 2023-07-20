@@ -20,12 +20,12 @@ const accordionIndex = ref(0)
           <!-- What is term -->
           <div class="transition hover:bg-indigo-50">
             <!-- header -->
-            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
+            <div @click="accordionIndex=0" class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
               <i class="fas fa-plus"></i>
               <h3>What is term?</h3>
             </div>
             <!-- Content -->
-            <div class="px-5 pt-0 text-left pb-5">
+            <div class="px-5 pt-0 text-left pb-5" v-show="accordionIndex==0">
               <p class="leading-6 font-light pl-9 ">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi dolor dolorum odio, saepe quibusdam iusto possimus nesciunt dolores assumenda quae totam, doloremque odit. Itaque cum animi, labore debitis deserunt iusto!
               </p>
@@ -35,12 +35,12 @@ const accordionIndex = ref(0)
           <!-- When to use Accordion Components -->
           <div class="transition hover:bg-indigo-50">
             <!-- header -->
-            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
+            <div @click="accordionIndex=1" class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
               <i class="fas fa-plus"></i>
               <h3>When to use Accordion Components?</h3>
             </div>
             <!-- Content -->
-            <div class="accordion-content px-5 pt-0 text-left pb-5">
+            <div class="accordion-content px-5 pt-0 text-left pb-5" v-show="accordionIndex==1">
               <p class="leading-6 font-light pl-9 ">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut suscipit itaque, sequi incidunt ab sit optio debitis dignissimos doloribus ratione nobis id mollitia maiores eveniet necessitatibus dolorum praesentium! Corrupti, at.
               </p>
@@ -50,12 +50,12 @@ const accordionIndex = ref(0)
           <!-- Accordion Wrapper -->
           <div class="transition hover:bg-indigo-50">
             <!-- header -->
-            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
+            <div @click="accordionIndex=2" class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
               <i class="fas fa-plus"></i>
               <h3>How can it be defined?</h3>
             </div>
             <!-- Content -->
-            <div class="accordion-content px-5 pt-0 text-left pb-5">
+            <div class="accordion-content px-5 pt-0 text-left pb-5" v-show="accordionIndex==2">
               <p class="leading-6 font-light pl-9">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima facilis labore voluptates provident nam, delectus suscipit nihil optio voluptate quae porro fugiat magni excepturi doloribus.
               </p>
@@ -65,12 +65,12 @@ const accordionIndex = ref(0)
           <!-- Accordion Wrapper -->
           <div class="transition hover:bg-indigo-50">
             <!-- header -->
-            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
+            <div @click="accordionIndex=3" class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
               <i class="fas fa-plus"></i>
               <h3>Chamber reached do he nothing be?</h3>
             </div>
             <!-- Content -->
-            <div class="accordion-content px-5 pt-0 text-left pb-5">
+            <div class="accordion-content px-5 pt-0 text-left pb-5" v-show="accordionIndex==3">
               <p class="leading-6 font-light pl-9">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam minima maiores magni dolore qui architecto pariatur incidunt repellat quos hic? Eius, eveniet accusantium! Quisquam, quo. Vitae ipsum ad veritatis commodi quasi expedita!
               </p>
