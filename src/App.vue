@@ -6,24 +6,26 @@ const accordions = reactive([
   {
     heading: "What is term?",
     content: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi dolor dolorum odio, saepe quibusdam iusto possimus nesciunt dolores assumenda quae totam, doloremque odit. Itaque cum animi, labore debitis deserunt iusto!",
-    isOpen: true
+    isOpen:true,
   },
   {
     heading: "When to use Accordion Components?",
     content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut suscipit itaque, sequi incidunt ab sit optio debitis dignissimos doloribus ratione nobis id mollitia maiores eveniet necessitatibus dolorum praesentium! Corrupti, at.",
-    isOpen: false
+    isOpen:false,
   },
   {
     heading: "How can it be defined?",
     content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima facilis labore voluptates provident nam, delectus suscipit nihil optio voluptate quae porro fugiat magni excepturi doloribus.",
-    isOpen: false
+    isOpen:false,
   },
   {
     heading: "Chamber reached do he nothing be?",
     content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam minima maiores magni dolore qui architecto pariatur incidunt repellat quos hic? Eius, eveniet accusantium! Quisquam, quo. Vitae ipsum ad veritatis commodi quasi expedita!",
-    isOpen: false
+    isOpen:false,
   }
 ])
+
+// accordions[0].isOpen=true
 </script>
 
 <template>
@@ -41,14 +43,14 @@ const accordions = reactive([
           <div class="h-1 w-full mx-auto border-b my-5"></div>
 
           <!-- What is term -->
-          <div class="transition hover:bg-indigo-50" v-for="accordion in accordions" >
+          <div class="transition hover:bg-indigo-50" v-for="(accordion,index) in accordions" :key="index" >
             <!-- header -->
-            <div @click="accordion.isOpen=!accordion.isOpen" class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" >
+            <div @click="activeIndex=index" class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" >
               <i class="fas fa-plus"></i>
               <h3>{{accordion.heading}}</h3>
             </div>
             <!-- Content -->
-            <div class="px-5 pt-0 text-left pb-5" v-show="accordion.isOpen" >
+            <div class="px-5 pt-0 text-left pb-5" v-show="index==activeIndex"  >
               <p class="leading-6 font-light pl-9 ">
               {{ accordion.content }}
               </p>
@@ -69,14 +71,14 @@ const accordions = reactive([
           <div class="h-1 w-full mx-auto border-b my-5"></div>
 
           <!-- What is term -->
-          <div class="transition hover:bg-indigo-50" v-for="(accordion,index) in accordions" >
+          <div class="transition hover:bg-indigo-50" v-for="(accordion,index) in accordions" :key="index" >
             <!-- header -->
-            <div @click="activeIndex=index" class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" >
+            <div @click="accordion.isOpen=!accordion.isOpen"  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" >
               <i class="fas fa-plus"></i>
               <h3>{{accordion.heading}}</h3>
             </div>
             <!-- Content -->
-            <div class="px-5 pt-0 text-left pb-5" v-show="index==activeIndex" >
+            <div class="px-5 pt-0 text-left pb-5" v-show="true==accordion.isOpen" >
               <p class="leading-6 font-light pl-9 ">
               {{ accordion.content }}
               </p>
