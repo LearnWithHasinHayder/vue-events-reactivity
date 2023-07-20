@@ -31,33 +31,27 @@ function buttonClicked(){
 
 <template>
   <section class="container mx-auto flex items-center flex-col">
-    <h1 class="text-center text-2xl py-10">Events & Reactivity in Vue.js</h1>
-    <h2 class="mt-10">{{ message }}</h2>
-    <form @submit.prevent action="https://google.com/search">
-      <div class="container mx-auto flex space-x-5 justify-center m-5">
-        <input @keyup.space="spacePressed()" name="q" type="text"  class="border border-gray-500 bg-white p-5"  placeholder="Press Space">
-      </div>
-      
-      <div class="container mx-auto flex space-x-5 justify-center m-5">
-        <input @keyup="pressedWhat($event)" name="text" type="text" class="border border-gray-500 bg-white p-5"  placeholder="Type Something">
-      </div>
-
-      <button @click.prevent="buttonPressed()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >
-        Button
-      </button>
-
-      <button @click.ctrl="ctrlRightClicked()" class="bg-blue-500 ml-5 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >
-        Ctrl + Right Click
-      </button>
-
-    </form>
-
-    <div @click="divClicked()" class="bg-gray-200 w-[500px] h-80 mt-5 flex items-center justify-center"  >
-      <button @click.stop="buttonClicked()" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"  >
-        Button
-      </button>
-    </div>
-  </section>
+        <h1 class="text-center text-2xl py-10">Assignment</h1>
+        <p class="p-5">Make These Buttons Work</p>
+        <div class="flex justify-between space-x-6">
+            <div class="p-10 border w-96 flex flex-col space-y-5">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Light 1 On
+                </button>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Light 2 On
+                </button>
+                <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                    Light 3 Off
+                </button>
+            </div>
+            <div class="p-10 border w-96 flex flex-col space-y-5">
+                <img class="w-20" src="//img.icons8.com/?size=512&id=12244&format=png" alt="">
+                <img class="w-20" src="//img.icons8.com/?size=512&id=12244&format=png" alt="">
+                <img class="w-20" src="https://img.icons8.com/?size=512&id=75&format=png" alt="">
+            </div>
+        </div>
+    </section>
 </template>
 
 <style scoped></style>
