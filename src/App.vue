@@ -46,8 +46,8 @@ const accordions = reactive([
           <div class="transition hover:bg-indigo-50" v-for="(accordion,index) in accordions" :key="index" >
             <!-- header -->
             <div @click="activeIndex=index" class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" >
-              <i class="fas fa-plus"></i>
-              <h3>{{accordion.heading}}</h3>
+              <i class="fas" :class="index==activeIndex?'fa-minus':'fa-plus'"></i>
+              <h3 >{{accordion.heading}}</h3>
             </div>
             <!-- Content -->
             <div class="px-5 pt-0 text-left pb-5" v-show="index==activeIndex"  >
@@ -74,7 +74,7 @@ const accordions = reactive([
           <div class="transition hover:bg-indigo-50" v-for="(accordion,index) in accordions" :key="index" >
             <!-- header -->
             <div @click="accordion.isOpen=!accordion.isOpen"  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" >
-              <i class="fas fa-plus"></i>
+              <i class="fas" :class="accordion.isOpen?'fa-minus':'fa-plus'"></i>
               <h3>{{accordion.heading}}</h3>
             </div>
             <!-- Content -->
